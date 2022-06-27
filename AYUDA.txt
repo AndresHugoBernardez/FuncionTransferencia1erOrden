@@ -1,0 +1,58 @@
+
+ Ayuda del programa
+				
+-d direccion:  *Ingresa la direccion del archivo
+-i numero:  Ingresa la primera fila del archivo donde se analizaran datos (empezando en 0, por defecto es 0)
+-f numero:  *Ingresa la ultima fila del archivo que se analizaran datos (empezando en 0, no puede ser 0)
+-I 00:00:00 : Ingresa la hora de la primera fila del archivo donde se analizaran datos
+-F 00:00:01 : Ingresa la hora de la ultima fila del archivo donde se analizaran datos 
+-t entero:  *Ingresa la columna donde se encuentran los datos de la hora (empezando en 1)
+-e entero:  *Ingresa la columna donde se encuentran los datos del Escalon(empezando en 1)
+-s entero:  *Ingresa la columna donde se encuentra la salida del Escalon (empezando en 1)
+-m flotante: Ingresa el tiempo de MUESTREO en segundos  que transcurre entre una fila y la otra (por defecto es 1 segundo)
+-h:  Ayuda del programa
+\n");
+ Son obligatorios los campos con '*'
+ 
+ 
+ Ejemplo de uso
+ 
+ Usando tiempo:
+ 
+      BlackBox1estOrder -d TEMP.CSV -I 19:04:00  -F 19:20:10  -t 2 -e 5 -s 3 
+	  
+	  
+	explicación  Se analizará en el archivo "TEMP.CSV desde la hora 19:04:00 hasta la hora 19:20:10
+	             La columna de la hora es la 2
+				 La columna donde está la señal de entrada es la 5
+				 La columna donde está la señal de salida es la 3
+ 
+ Usando numero de fila:
+ 
+      BlackBox1estOrder -d TEMP.CSV -i 30  -f 2000  -t 2 -e 5 -s 3
+ 
+ 	explicación  Se analizará en el archivo "TEMP.CSV desde la fila 30 hasta la 2000
+	             La columna de la hora es la 2
+				 La columna donde está la señal de entrada es la 5
+				 La columna donde está la señal de salida es la 3
+				 
+				 
+				 
+Si ocurre otro escalón antes de que se llegue al final, se tomará ese punto como el final.
+
+
+
+//-------------------------------------------------
+//-------------------------------------------------
+
+Mejoras para la versión 2
+
+En vez de usar fgetc usar fread
+
+Calcular Tao y Retardo con la hora y no con un contador. 
+
+----------------------------
+
+Andrés Bernárdez 2022
+ 
+ 
